@@ -21,15 +21,10 @@
 
     <!-- Run BEFORE page is finished loading (before window.onload - don't add the `defer` attribute): -->
     <script src="./auth.js"></script>
-    <script>
-        if (!isLoggedIn()) window.location.replace("/");
-    </script>
-</head>
-<body>
-
-
-
     <!-- Page-specific code -->
     <script src="/profile/profile.js"></script>
+    <script>
+        if (!isLoggedIn()) window.location.replace("/profile");
+    </script>
 </body>
 </html>
