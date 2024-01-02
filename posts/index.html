@@ -23,21 +23,27 @@
 
     <!-- Run BEFORE page is finished loading (before window.onload): -->
     <script src="../auth.js"></script>
-    <script>
-        if (!isLoggedIn()) window.location.replace("/");
-    </script>
+   
 </head>
 <body>
 
     <header>
         <h1>POSTS PAGE</h1>
+        <input type="button" value="Log Out" placeholder="Log Out">
     </header>
+
+    <nav>
+        <a href="/profile/profile.html">Profile</a>
+    </nav>
 
     <main></main>
 
     <footer></footer>
 
     <!-- Page-specific code -->
-    <script src="./posts.js"></script>
+    <script src="/posts/posts.js"></script>
+    <script>
+        if (!isLoggedIn()) window.location.replace("/posts");
+    </script>
 </body>
 </html>
