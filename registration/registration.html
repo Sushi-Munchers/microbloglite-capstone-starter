@@ -1,16 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-<body>
+
     <h1>Hello</h1>
 
     <script src="/auth.js"></script>
-    <script>
-        if (!isLoggedIn()) window.location.replace("/");
-    </script>
+  
+</head>
+
+<body style="margin: 20px;">
+    <header>
+        <h1>Welcome to <code>YOUR MICROBLOG NETWORK</code></h1>
+    </header>
+
+
+    <br>
+    <h2>Register User</h2>
+
+
+    <form id="registration">
+        <div>
+            <label for="username">Username</label><br>
+            <input type="text" id="username" minlength="3" required /><br><br>
+        </div>
+
+        <div>
+            <label for="fullName">Full Name</label><br>
+            <input type="text" id="fullName" minlength="6" required /><br><br>
+        </div>
+
+        <div>
+            <label for="password">Password</label><br>
+            <input type="password" id="password" required /><br><br>
+        </div>
+
+        <input type="submit" value="Register" />
+
+        <p>Already have an account? <a href="/index.html">Login here</a></p>
+
+    </form>
+
+    <script src="registration.js"></script>
+
 </body>
+
 </html>
