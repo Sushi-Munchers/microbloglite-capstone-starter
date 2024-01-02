@@ -55,13 +55,22 @@
     </nav>
 
     <div class="container">
-        <img class="d-block mx-auto mt-4" src="/images/profilepic.jpg" alt="Profile Picture" height="150px">
+        <img class="d-block mx-auto mt-4" src="/pictures/" alt="Profile Picture" height="150px">
         <div class="text-center text-success" id="fullName"></div>
         <div class="text-center" id="username"></div>
         <div class="text-center text-muted" id="bio"></div>
         <button onclick="unhiddenEditForm();" id="editButton" class="btn btn-info">Edit My Bio</button>
-        <form onsubmit="editProfile(event);" id="editForm"></form>
+        <form onsubmit="editProfile(event);" id="editForm">
+            <input id="bioInput" class="form-control w-50 m-2" type="text" placeholder="Edit Bio">
+            <button type="submit" class="btn btn-warning">Make Changes</button>
+            <button class="btn btn-danger" onclick="hideEditForm();">Nevermind</button>
+            <div id="messageDiv" class="text-success"></div>
+        </form>
     </div>
+
+
+
+
 
 
 
