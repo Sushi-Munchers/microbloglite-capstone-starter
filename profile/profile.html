@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,11 +21,46 @@
 
 
     <!-- Run BEFORE page is finished loading (before window.onload - don't add the `defer` attribute): -->
-    <script src="./auth.js"></script>
+    <script src="/auth.js"></script>
+    <script>
+        if (!isLoggedIn()) window.location.replace("/");
+    </script>
+</head>
+
+
+<body>
+    <nav>
+        <header class="p-3 text-bg-dark">
+            <div class="container">
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <a href="/profile/profile.html"
+                        class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                        <img height="50em" src="/pictures/" alt="profile">
+                    </a>
+
+                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 mr-2">
+                        <li><a href="/posts/index.html" class="nav-link px-2 text-white"></a></li>
+                        <li><a href="/profile/profile.html" class="nav-link px-2 text-white">Your Profile</a></li>
+                    </ul>
+
+                    <div class="text-end">
+                        <button type="button" class="btn btn-warning"><a class="nav-link"
+                                href="/registration/registration.html">Sign-up</a></button>
+                        <button class="btn btn-danger p-2 m-2" id="logoutButton" onclick="logout();"><a
+                                href="/index.html">Signout!</a> </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </nav>
+
+
+
     <!-- Page-specific code -->
     <script src="/profile/profile.js"></script>
     <script>
         if (!isLoggedIn()) window.location.replace("/profile");
     </script>
 </body>
+
 </html>
