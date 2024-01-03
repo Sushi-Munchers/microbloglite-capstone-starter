@@ -1,6 +1,6 @@
 "use strict";
 
-// const api = "https://microbloglite.herokuapp.com/";
+// const api = "http://microbloglite.us-east-2.elasticbeanstalk.com";
 const $q = (selector) => document.querySelector(selector);
 const fullName = $q("#fullName");
 const username = $q("#username");
@@ -63,7 +63,7 @@ function postBubblyThoughts(event) {
       text: postText.value,
     }),
   };
-  fetch("https://microbloglite.herokuapp.com/" + "api/posts", options)
+  fetch("http://microbloglite.us-east-2.elasticbeanstalk.com" + "api/posts", options)
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
@@ -95,7 +95,7 @@ function editProfile(event) {
           // fullName: fullNameInput.value,
         })
     }
-    fetch("https://microbloglite.herokuapp.com/" + "api/users/" + loginData.username, options)
+    fetch("http://microbloglite.us-east-2.elasticbeanstalk.com" + "api/users/" + loginData.username, options)
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
@@ -119,7 +119,7 @@ function logout() {
     },
   };
 
-  fetch("https://microbloglite.herokuapp.com/" + "/auth/logout", options)
+  fetch("http://microbloglite.us-east-2.elasticbeanstalk.com" + "/auth/logout", options)
     .then((response) => response.json())
     .then((data) => console.log(data))
     .finally(() => {
