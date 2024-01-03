@@ -68,17 +68,49 @@
         </form>
     </div>
 
+    <form class="m-3" onsubmit="postBubblyThoughts(event);">
+        <label for="postText">
+            <h4>What's on your mind?..</h4>
+        </label>
+        <textarea id="postText" class="form-control" rows="5" required></textarea>
+        <button class="btn btn-success m-2" type="submit"><a href="/posts/index.html">Send</a> ~</button>
+    </form>
+    <p id="messagePara" class="text-success"></p>
+
+    <div id="contentDiv"></div>
+    </div>
+
+
+    <footer>
+        <div class="footer-content">
+            <h3>MicoBlogLite</h3>
+            <p> </p>
+            <ul class="socials">
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>copyright &copy;2022 MicroBlogLite</p>
+        </div>
+    </footer>
+</body>
+
+</html>
 
 
 
 
 
 
-    <!-- Page-specific code -->
-    <script src="/profile/profile.js"></script>
-    <script>
-        if (!isLoggedIn()) window.location.replace("/profile");
-    </script>
+<!-- Page-specific code -->
+<script src="/profile/profile.js"></script>
+<script>
+    if (!isLoggedIn()) window.location.replace("/profile");
+</script>
 </body>
 
 </html>
