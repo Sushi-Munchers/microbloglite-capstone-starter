@@ -21,10 +21,7 @@
 
 
     <!-- Run BEFORE page is finished loading (before window.onload - don't add the `defer` attribute): -->
-    <script src="/auth.js"></script>
-    <script>
-        if (!isLoggedIn()) window.location.replace("/");
-    </script>
+   
 </head>
 
 
@@ -35,7 +32,7 @@
                 <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                     <a href="/profile/profile.html"
                         class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                        <img height="50em" src="/pictures/" alt="profile">
+                        <img height="50em" src="/pictures/profilepic.jpg" alt="profile">
                     </a>
 
                     <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 mr-2">
@@ -55,7 +52,7 @@
     </nav>
 
     <div class="container">
-        <img class="d-block mx-auto mt-4" src="/pictures/" alt="Profile Picture" height="150px">
+        <img class="d-block mx-auto mt-4" src="/pictures/profilepic.jpg" alt="Profile Picture" height="150px">
         <div class="text-center text-success" id="fullName"></div>
         <div class="text-center" id="username"></div>
         <div class="text-center text-muted" id="bio"></div>
@@ -83,7 +80,7 @@
 
     <footer>
         <div class="footer-content">
-            <h3>MicoBlogLite</h3>
+            <h3>MicroBlogLite</h3>
             <p> </p>
             <ul class="socials">
                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -94,7 +91,7 @@
             </ul>
         </div>
         <div class="footer-bottom">
-            <p>copyright &copy;2022 MicroBlogLite</p>
+            <p>copyright &copy;2024 MicroBlogLite</p>
         </div>
     </footer>
 </body>
