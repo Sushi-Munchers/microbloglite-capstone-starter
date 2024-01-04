@@ -36,7 +36,7 @@ function loadProfileInfo() {
       "Content-Type": "application/json",
     },
   };
-  fetch("http://microbloglite.us-east-2.elasticbeanstalk.com" + "api/users/" + loginData.username, options)
+  fetch("http://microbloglite.us-east-2.elasticbeanstalk.com" + "/api/users/" + loginData.username, options)
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
@@ -63,11 +63,11 @@ function postBubblyThoughts(event) {
       text: postText.value,
     }),
   };
-  fetch("http://microbloglite.us-east-2.elasticbeanstalk.com" + "api/posts", options)
+  fetch("http://microbloglite.us-east-2.elasticbeanstalk.com" + "/api/posts", options)
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      messagePara.innerText = `Powerpuff Universe has received your thought!`;
+      messagePara.innerText = `Post sent!`;
     });
 }
 
@@ -95,11 +95,11 @@ function editProfile(event) {
           // fullName: fullNameInput.value,
         })
     }
-    fetch("http://microbloglite.us-east-2.elasticbeanstalk.com" + "api/users/" + loginData.username, options)
+    fetch("http://microbloglite.us-east-2.elasticbeanstalk.com" + "/api/users/" + loginData.username, options)
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      messageDiv.innerText = `Saved successfully! Please refresh your room.`
+      messageDiv.innerText = `Saved successfully! Please refresh the page.`
       // window.location.replace("/profilePage/");
     });
 }
