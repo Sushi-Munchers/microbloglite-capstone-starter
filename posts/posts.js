@@ -1,10 +1,8 @@
-/* Posts Page JavaScript */
 
 "use strict";
 
-// Function to get all users via fetch()
-function getAllUsers() {
-  // GET /api/users
+// Function to get all posts via fetch()
+function getAllPosts() {
   const loginData = getLoginData();
   const options = {
     method: "GET",
@@ -12,76 +10,88 @@ function getAllUsers() {
       Authorization: `Bearer ${loginData.token}`,
     },
   };
-  // note: the api variable is defined in auth.js
-  fetch(api + "/api/posts", options)
+
+  // Fetch posts
+  fetch("http://microbloglite.us-east-2.elasticbeanstalk.com" + "/api/posts", options)
     .then((response) => response.json())
-    .then((users) => {
-      // Do something with the users array...
-      console.log(users);
+    .then((posts) => {
+      // Display posts on the page
+      displayPosts(posts);
+    })
+    .catch((error) => {
+      console.error("Error fetching posts:", error);
     });
 }
 
-// This is the `logout()` function you will use for any logout button
-// which you may include in various pages in your app. Again, READ this
-// function and you will probably want to re-use parts of it for other
-// `fetch()` requests you may need to write.
+// Function to display posts on the page
+function displayPosts(posts) {
+  const mainElement = document.querySelector("main");
 
+  // Clear existing content
+  mainElement.innerHTML = "";
+
+  // Check if there are posts to display
+  if (posts && posts.length > 0) {
+    // Iterate through posts and create HTML elements
+    posts.forEach((post) => {
+      const postElement = document.createElement("div");
+      postElement.classList.add("post");
+
+      // Author, time, and content
+      const authorElement = document.createElement("p");
+      authorElement.textContent = `Author: ${post.username}`; // Change from post.author to post.username
+      const timeElement = document.createElement("p");
+      timeElement.textContent = `Time: ${post.createdAt}`; // Change from post.time to post.createdAt
+      const contentElement = document.createElement("p");
+      contentElement.textContent = `Content: ${post.text}`; // Change from post.content to post.text
+
+      // Append elements to the post container
+      postElement.appendChild(authorElement);
+      postElement.appendChild(timeElement);
+      postElement.appendChild(contentElement);
+
+      // Append post container to the main element
+      mainElement.appendChild(postElement);
+    });
+  } else {
+    // Display a message if no posts are available
+    const noPostsMessage = document.createElement("p");
+    noPostsMessage.textContent = "No posts available.";
+    mainElement.appendChild(noPostsMessage);
+  }
+}
+
+// Function to load profile information
 function loadProfileInfo() {
   const loginData = getLoginData();
   const options = {
     method: "GET",
     headers: {
-      // This header is how we authenticate our user with the
-      // server for any API requests which require the user
-      // to be logged-in in order to have access.
-      // In the API docs, these endpoints display a lock icon.
       Authorization: `Bearer ${loginData.token}`,
       "Content-Type": "application/json",
     },
   };
-  fetch(
-    "https://microbloglite.herokuapp.com/" + "api/users/" + loginData.username,
-    options
-  )
+
+  // Fetch profile information
+  fetch(apiBaseURL + "/api/users/" + loginData.username, options)
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      fullName.innerText = data.fullName;
-      username.innerText = `@${data.username}`;
-      bio.innerText = data.bio;
+      // You can customize this part to update the profile information on the page
+      // For example:
+      document.getElementById("fullName").innerText = data.fullName;
+      document.getElementById("username").innerText = `@${data.username}`;
+      document.getElementById("bio").innerText = data.bio;
     });
 }
 
-
-function unhiddenEditForm() {
-  editForm.style.display = "block";
-}
-
-function hideEditForm() {
-  editForm.style.display = "none";
-}
-
-function editProfile(event) {
-  event.preventDefault();
-  const loginData = getLoginData();
-
-  const options = {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${loginData.token}`,
-    },
-  };
-
-  fetch(apiBaseURL + "/auth/logout", options)
-    .then((response) => response.json())
-    .then((data) => console.log(data))
-    .finally(() => {
-      // We're using `finally()` so that we will continue with the
-      // browser side of logging out (below) even if there is an
-      // error with the fetch request above.
-
-      window.localStorage.removeItem("login-data"); // remove login data from LocalStorage
-      window.location.assign("/"); // redirect back to landing page
-    });
-}
+// Load profile information and posts when the page is loaded
+window.onload = function () {
+  if (isLoggedIn()) {
+    loadProfileInfo();
+    getAllPosts();
+  } else {
+    // Redirect to login page if not logged in
+    window.location.replace("/");
+  }
+};
