@@ -1,6 +1,7 @@
 
 "use strict";
 
+
 // Function to get all posts via fetch()
 function getAllPosts() {
   const loginData = getLoginData();
@@ -10,6 +11,7 @@ function getAllPosts() {
       Authorization: `Bearer ${loginData.token}`,
     },
   };
+
 
   // Fetch posts
   fetch("http://microbloglite.us-east-2.elasticbeanstalk.com" + "/api/posts", options)
@@ -23,12 +25,15 @@ function getAllPosts() {
     });
 }
 
+
 // Function to display posts on the page
 function displayPosts(posts) {
   const mainElement = document.querySelector("main");
 
+
   // Clear existing content
   mainElement.innerHTML = "";
+
 
   // Check if there are posts to display
   if (posts && posts.length > 0) {
@@ -36,6 +41,7 @@ function displayPosts(posts) {
     posts.forEach((post) => {
       const postElement = document.createElement("div");
       postElement.classList.add("post");
+
 
       // Author, time, and content
       const authorElement = document.createElement("p");
@@ -45,10 +51,12 @@ function displayPosts(posts) {
       const contentElement = document.createElement("p");
       contentElement.textContent = `Content: ${post.text}`; // Change from post.content to post.text
 
+
       // Append elements to the post container
       postElement.appendChild(authorElement);
       postElement.appendChild(timeElement);
       postElement.appendChild(contentElement);
+
 
       // Append post container to the main element
       mainElement.appendChild(postElement);
@@ -61,6 +69,7 @@ function displayPosts(posts) {
   }
 }
 
+
 // Function to load profile information
 function loadProfileInfo() {
   const loginData = getLoginData();
@@ -71,6 +80,7 @@ function loadProfileInfo() {
       "Content-Type": "application/json",
     },
   };
+
 
   // Fetch profile information
   fetch(apiBaseURL + "/api/users/" + loginData.username, options)
@@ -85,6 +95,7 @@ function loadProfileInfo() {
     });
 }
 
+
 // Load profile information and posts when the page is loaded
 window.onload = function () {
   if (isLoggedIn()) {
@@ -95,3 +106,4 @@ window.onload = function () {
     window.location.replace("/");
   }
 };
+
