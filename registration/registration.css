@@ -6,7 +6,11 @@ body{
     background-color: rgba(29, 74, 48, 0.645);
     text-align: center;
     
-    font-family: Arial, sans-serif;
+    font-family: 'Pacifico', cursive;
+    
+    color: black;
+
+
 }
 
 p{
@@ -15,6 +19,7 @@ p{
 
 h1{
     margin-bottom: -30px;
+    color: white;
 }
 
 .form-control{
@@ -24,6 +29,9 @@ h1{
    
 }
 
+h3{
+    font-size: xx-large;
+}
 
 .container {
     max-width: 500px;
@@ -36,6 +44,7 @@ h1{
 
 footer{
     margin-top: -20px;
+    color: white;
 }
 
 form {
@@ -43,3 +52,21 @@ form {
     flex-direction: column;
 }
 
+body {
+    background: url(/pictures/starry.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    font-family: 'Pacifico', cursive;
+
+    font-weight:bolder;
+}
+
+header {
+    margin-top: 150px
+}
+
+footer{
+    margin-top: 300px;
+}

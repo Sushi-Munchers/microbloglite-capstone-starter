@@ -56,6 +56,7 @@ function login (loginData) {
 // `fetch()` requests you may need to write.
 function logout () {
     const loginData = getLoginData();
+    
 
     // GET /auth/logout
     const options = { 

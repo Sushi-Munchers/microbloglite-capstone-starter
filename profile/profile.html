@@ -21,9 +21,14 @@
 
 
     <!-- Run BEFORE page is finished loading (before window.onload - don't add the `defer` attribute): -->
-   
+
 </head>
 
+
+<script src="/auth.js"></script>
+<script>
+    if (!isLoggedIn()) window.location.replace("/index.html");
+</script>
 
 <body>
     <nav>
@@ -41,10 +46,8 @@
                     </ul>
 
                     <div class="text-end">
-                        <button type="button" class="btn btn-warning"><a class="nav-link"
-                                href="/registration/registration.html">Sign-up</a></button>
-                        <button class="btn btn-danger p-2 m-2" id="logoutButton" onclick="logout();"><a
-                                href="/index.html">Signout!</a> </button>
+                        <button class="btn btn-danger p-2 m-2" id="logoutButton" onclick="logout();" style="color: black";> 
+                            Signout </button>
                     </div>
                 </div>
             </div>
@@ -56,31 +59,36 @@
         <div class="text-center text-success" id="fullName"></div>
         <div class="text-center" id="username"></div>
         <div class="text-center text-muted" id="bio"></div>
-        <button onclick="unhiddenEditForm();" id="editButton" class="btn btn-info">Edit My Bio</button>
+        <button onclick="unhiddenEditForm();" id="editButton" class="btn btn-info" style="margin-top: 40px;">Edit My
+            Bio</button>
         <form onsubmit="editProfile(event);" id="editForm">
-            <input id="bioInput" class="form-control w-50 m-2" type="text" placeholder="Edit Bio">
+            <input id="bioInput" style="height: 150px" style="text-align: left;"
+                class="justify-content-center  form-control-lg m-2" type="text" style="margin-top: 100px;"
+                placeholder="Edit Bio">
             <button type="submit" class="btn btn-warning">Make Changes</button>
-            <button class="btn btn-danger" onclick="hideEditForm();">Nevermind</button>
+            <button id="Nevermind-btn" class="btn btn-danger" onclick="hideEditForm();">Nevermind</button>
             <div id="messageDiv" class="text-success"></div>
         </form>
+    </div class="container">
+
+    <div class="container">
+        <form class="m-3" onsubmit="postBubblyThoughts(event);">
+            <label for="postText">
+                <h4>What's on your mind?..</h4>
+            </label>
+            <textarea style="justify-content-center" ; id="postText" class="form-control" rows="5" cols="50" required
+                style="max-width: 500px;"></textarea>
+            <span><button class="btn btn-success  m-2" type="submit"><a href="/posts/index.html"
+                        style="color: black">Send</a></button>
+        </form>
+        <p id="messagePara" class="text-success"></p>
+
+        <div id="contentDiv"></div>
     </div>
-
-    <form class="m-3" onsubmit="postBubblyThoughts(event);">
-        <label for="postText">
-            <h4>What's on your mind?..</h4>
-        </label>
-        <textarea id="postText" class="form-control" rows="5" required></textarea>
-        <button class="btn btn-success m-2" type="submit"><a href="/posts/index.html">Send</a> ~</button>
-    </form>
-    <p id="messagePara" class="text-success"></p>
-
-    <div id="contentDiv"></div>
     </div>
-
 
     <footer>
         <div class="footer-content">
-            <h3>MicroBlogLite</h3>
             <p> </p>
             <ul class="socials">
                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
