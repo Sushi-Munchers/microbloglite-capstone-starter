@@ -2,6 +2,24 @@
 
 "use strict";
 
+// Function to get all users via fetch()
+function getAllUsers () {
+    // GET /api/users
+    const loginData = getLoginData();
+    const options = {
+    method: "GET",
+    headers: {
+    Authorization: `Bearer ${loginData.token}`,
+    },
+    };
+    // note: the api variable is defined in auth.js
+    fetch(api + "/api/posts", options)
+    .then(response => response.json());
+    .then(users => {
+    // Do something with the users array...
+    console.log(users);
+    });
+    }
 
 // This is the `logout()` function you will use for any logout button
 // which you may include in various pages in your app. Again, READ this
