@@ -6,43 +6,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <h1>Hello</h1>
 
     <script src="/auth.js"></script>
-  
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="registration.css">
+
 </head>
 
-<body style="margin: 20px;">
+<body>
     <header>
-        <h1>Welcome to <code>YOUR MICROBLOG NETWORK</code></h1>
+        <h1>Welcome to MICROBLOG NETWORK</h1>
     </header>
 
+    <main>
+        <br>
 
-    <br>
-    <h2>Register User</h2>
+        <div class="container">
+            <h3>Register User</h3>
+            <div class="card">
+                <div class="card-body">
+                    <form id="registration">
+                        <div class="col-md-12">
+                            <label for="username"></label>
+                            <input type="text" class="form-control" id="username" minlength="3" placeholder="username"
+                                required /><br>
+                        </div>
 
+                        <div class="col-md-12">
+                            <label for="fullName"></label>
+                            <input type="text" class="form-control" id="fullName" placeholder="full name" minlength="6"
+                                required /><br>
+                        </div>
 
-    <form id="registration">
-        <div>
-            <label for="username">Username</label><br>
-            <input type="text" id="username" minlength="3" required /><br><br>
+                        <div class="col-md-12">
+                            <label for="password"></label>
+                            <input type="password" class="form-control" id="password" placeholder="password"
+                                required /><br><br>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Register</button>
+
+                        <p>Already have an account? <a href="/index.html">Login</a></p>
+
+                    </form>
+                </div>
+            </div>
         </div>
 
-        <div>
-            <label for="fullName">Full Name</label><br>
-            <input type="text" id="fullName" minlength="6" required /><br><br>
-        </div>
+    </main>
 
-        <div>
-            <label for="password">Password</label><br>
-            <input type="password" id="password" required /><br><br>
-        </div>
 
-        <input type="submit" value="Register" />
-
-        <p>Already have an account? <a href="/index.html">Login here</a></p>
-
-    </form>
+    <footer>
+        <p>&copy;2024 Microblog Network</p>
+    </footer>
 
     <script src="registration.js"></script>
 

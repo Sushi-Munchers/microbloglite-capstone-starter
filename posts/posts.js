@@ -1,3 +1,5 @@
+/* Posts Page JavaScript */
+
 "use strict";
 
 // Function to get all users via fetch()
@@ -19,12 +21,10 @@ function getAllUsers() {
     });
 }
 
-// You can use this to get the login data of the logged-in user (if any).
-// Returns either an object including the username and token,
-// or an empty object if the visitor is not logged in.
-function getLoginData() {
-  return JSON.parse(window.localStorage.getItem("login-data")) || {};
-}
+// This is the `logout()` function you will use for any logout button
+// which you may include in various pages in your app. Again, READ this
+// function and you will probably want to re-use parts of it for other
+// `fetch()` requests you may need to write.
 
 function loadProfileInfo() {
   const loginData = getLoginData();
@@ -52,30 +52,6 @@ function loadProfileInfo() {
     });
 }
 
-function postBubblyThoughts(event) {
-  event.preventDefault();
-  const loginData = getLoginData();
-  const options = {
-    method: "POST",
-    headers: {
-      // This header is how we authenticate our user with the
-      // server for any API requests which require the user
-      // to be logged-in in order to have access.
-      // In the API docs, these endpoints display a lock icon.
-      Authorization: `Bearer ${loginData.token}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      text: postText.value,
-    }),
-  };
-  fetch("https://microbloglite.herokuapp.com/" + "api/posts", options)
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-      messagePara.innerText = `Powerpuff Universe has received your thought!`;
-    });
-}
 
 function unhiddenEditForm() {
   editForm.style.display = "block";
