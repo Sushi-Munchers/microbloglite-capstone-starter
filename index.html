@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,33 +27,50 @@
         if (isLoggedIn()) window.location.replace("/posts");
     </script>
 </head>
+
 <body>
 
-    <header>
-        <h1>Welcome to <code>YOUR MICROBLOG NETWORK</code></h1>
+    <br><header>
+        <h1>Welcome to YOUR MICROBLOG NETWORK</h1>
     </header>
 
     <main>
+       
+        <div class="container">
+             <h3>Login</h3>
+             <div class="card">
+            <div class="card-body">
+                <form id="login">
+                    <div class="col-md-12">
+                        <label for="username"></label>
+                        <input type="text" class="form-control" placeholder="username" id="username" minlength="3" required>
+                    </div><br>
 
-        <form id="login">
-            <div>
-                <label for="username">Username</label>
-                <input type="text" id="username" minlength="3">
+                    <div class="col-md-12">
+                        <label for="password"></label>
+                        <input type="password" class="form-control" placeholder="password" id="password" minlength="6" required>
+                    </div><br>
+
+                    <a href="">Forgot Password?</a><br>
+
+                    <button type="submit" class="btn btn-primary" id="loginButton">Login</button>
+
+                    <p>Don't have an account?<a href="registration/registration.html"> Sign up</a></p>
+                </form>
+
             </div>
-
-            <div>
-                <label for="password">Password</label>
-                <input type="password" id="password" minlength="6">
-            </div>
-
-            <button id="loginButton" type="submit">Login</button>
-        </form>
-
+        </div>
+    </div>
+      
     </main>
 
-    <footer></footer>
+
+    <footer>
+        <p>&copy;2024 Microblog Network</p>
+    </footer>
 
     <!-- Page-specific code -->
     <script src="/landing.js"></script>
 </body>
+
 </html>
