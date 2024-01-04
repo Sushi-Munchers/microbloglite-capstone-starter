@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,11 +21,96 @@
 
 
     <!-- Run BEFORE page is finished loading (before window.onload - don't add the `defer` attribute): -->
-    <script src="./auth.js"></script>
-    <!-- Page-specific code -->
-    <script src="/profile/profile.js"></script>
+    <script src="/auth.js"></script>
     <script>
-        if (!isLoggedIn()) window.location.replace("/profile");
+        if (!isLoggedIn()) window.location.replace("/");
     </script>
+</head>
+
+
+<body>
+    <nav>
+        <header class="p-3 text-bg-dark">
+            <div class="container">
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <a href="/profile/profile.html"
+                        class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                        <img height="50em" src="/pictures/" alt="profile">
+                    </a>
+
+                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 mr-2">
+                        <li><a href="/posts/index.html" class="nav-link px-2 text-white"></a></li>
+                        <li><a href="/profile/profile.html" class="nav-link px-2 text-white">Your Profile</a></li>
+                    </ul>
+
+                    <div class="text-end">
+                        <button type="button" class="btn btn-warning"><a class="nav-link"
+                                href="/registration/registration.html">Sign-up</a></button>
+                        <button class="btn btn-danger p-2 m-2" id="logoutButton" onclick="logout();"><a
+                                href="/index.html">Signout!</a> </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </nav>
+
+    <div class="container">
+        <img class="d-block mx-auto mt-4" src="/pictures/" alt="Profile Picture" height="150px">
+        <div class="text-center text-success" id="fullName"></div>
+        <div class="text-center" id="username"></div>
+        <div class="text-center text-muted" id="bio"></div>
+        <button onclick="unhiddenEditForm();" id="editButton" class="btn btn-info">Edit My Bio</button>
+        <form onsubmit="editProfile(event);" id="editForm">
+            <input id="bioInput" class="form-control w-50 m-2" type="text" placeholder="Edit Bio">
+            <button type="submit" class="btn btn-warning">Make Changes</button>
+            <button class="btn btn-danger" onclick="hideEditForm();">Nevermind</button>
+            <div id="messageDiv" class="text-success"></div>
+        </form>
+    </div>
+
+    <form class="m-3" onsubmit="postBubblyThoughts(event);">
+        <label for="postText">
+            <h4>What's on your mind?..</h4>
+        </label>
+        <textarea id="postText" class="form-control" rows="5" required></textarea>
+        <button class="btn btn-success m-2" type="submit"><a href="/posts/index.html">Send</a> ~</button>
+    </form>
+    <p id="messagePara" class="text-success"></p>
+
+    <div id="contentDiv"></div>
+    </div>
+
+
+    <footer>
+        <div class="footer-content">
+            <h3>MicoBlogLite</h3>
+            <p> </p>
+            <ul class="socials">
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>copyright &copy;2022 MicroBlogLite</p>
+        </div>
+    </footer>
 </body>
+
+</html>
+
+
+
+
+
+
+<!-- Page-specific code -->
+<script src="/profile/profile.js"></script>
+<script>
+    if (!isLoggedIn()) window.location.replace("/profile");
+</script>
+</body>
+
 </html>
