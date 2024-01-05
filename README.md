@@ -1,7 +1,7 @@
 
 # PulseNet
 
-Microblog Network is a web application that facilitates the sharing of short insights among users. The platform includes several pages with distinct features.
+PulseNet is a web application that facilitates the sharing of short insights among users. The platform includes several pages with distinct features.
 
 ## Pages
 
