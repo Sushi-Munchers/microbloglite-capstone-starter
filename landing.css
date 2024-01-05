@@ -2,6 +2,7 @@
 
 header{
     color: white;
+    margin: 30px;
 }
 
 body{
@@ -42,10 +43,6 @@ h1{
     
 }
 
-footer{
-    margin-top: -60px;
-    color: white;
-}
 
 
 form {
@@ -56,6 +53,11 @@ form {
 input {
     margin-bottom: 10px;
     padding: 8px;
+}
+
+footer{
+    margin-top: -40px;
+    color: white;
 }
 
 body {
@@ -70,10 +72,3 @@ body {
     font-size: xx-large;
   }
 
-  header {
-    margin-top: 150px
-}
-
-footer{
-    margin-top: 300px;
-}
