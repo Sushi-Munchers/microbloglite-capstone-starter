@@ -7,7 +7,7 @@ Microblog Network is a web application that facilitates the sharing of short ins
 
 ###  Landing/Login Page
 
-![Landing/Login](/pictures/login.png)
+![Landing/Login](/pictures/login1.png)
 
 
 - **Description:** The landing page introduces the application and features a login form.
@@ -18,7 +18,7 @@ Microblog Network is a web application that facilitates the sharing of short ins
 - **Description:** The registration page provides a form for users to create a new account.
 - **Usage:** New users can fill out the form to register and subsequently log in.
 
-![Registration Page](/pictures/register.png)
+![Registration Page](/pictures/register1.png)
 
 
 ###  Posts Page
@@ -28,7 +28,7 @@ Microblog Network is a web application that facilitates the sharing of short ins
 
 ###  Profile Page
 
-![Profile](/pictures/profile.png)
+![Profile](/pictures/profile1.png)
 
 
 - **Description:** The profile page is a personalized space for each user.
