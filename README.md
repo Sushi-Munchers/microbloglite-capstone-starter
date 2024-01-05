@@ -28,7 +28,7 @@ Microblog Network is a web application that facilitates the sharing of short ins
 
 ###  Profile Page
 
-![Profile](/pictures/profile.pngscreenshot.png)
+![Profile](/pictures/profile.png)
 
 
 - **Description:** The profile page is a personalized space for each user.
